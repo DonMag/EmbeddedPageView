@@ -86,7 +86,9 @@ class BasicPageViewController: UIPageViewController {
 		
 		// we don't want to "wrap around" so only change if we have a VC "to the left"
 		if i > 0 {
-			setViewControllers([orderedViewControllers[i - 1]], direction: .reverse, animated: true, completion: nil)
+			setViewControllers([orderedViewControllers[i - 1]], direction: .reverse, animated: true) { _ in
+				print("showPrevPage Done")
+			}
 		}
 		
 	}
@@ -98,7 +100,9 @@ class BasicPageViewController: UIPageViewController {
 		
 		// we don't want to "wrap around" so only change if we have a VC "to the right"
 		if i < orderedViewControllers.count - 1 {
-			setViewControllers([orderedViewControllers[i + 1]], direction: .forward, animated: true, completion: nil)
+			setViewControllers([orderedViewControllers[i + 1]], direction: .forward, animated: true) { _ in
+				print("showNextPage Done")
+			}
 		}
 		
 	}
@@ -115,7 +119,9 @@ class BasicPageViewController: UIPageViewController {
 		
 		// if "target" index is less-than current index (target page is "to the left")
 		// set direction to .reverse, else to .forward
-		setViewControllers([orderedViewControllers[targetIndex]], direction: targetIndex < currentIndex ? .reverse : .forward, animated: true, completion: nil)
+		setViewControllers([orderedViewControllers[targetIndex]], direction: targetIndex < currentIndex ? .reverse : .forward, animated: true) { _ in
+			print("showIndexedPage Done")
+		}
 		
 	}
 	
