@@ -211,7 +211,7 @@ extension BasicPageViewController: UIPageViewControllerDataSource {
 		
 		let previousIndex = viewControllerIndex - 1
 		
-		guard previousIndex > 0 else {
+		guard previousIndex > -1 else {
 			return nil
 		}
 		
